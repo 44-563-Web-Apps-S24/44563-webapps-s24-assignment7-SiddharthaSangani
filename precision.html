@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Timer page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <h1>Siddhartha Sangani speed check</h1>
+  <h2>Timeout - Red in 3 seconds</h2>
+  <div id="target">your time</div>
+  <div id="counter">Count</div>
+  <button type="button"  onclick="startTime()">Start timer</button>
+  <button type="button"  onclick="recordTime()">Stop timer</button>
+  
+  <p id="countdown">Countdown </p>
+  
+  <script> 
+  var stopTime=undefined;
+  function recordTime()
+  {
+     stoptime=Date.now();
+     console.log(stopTime);
+
+     
+  }
+  function startTime()
+  {
+    for (let index = 0; index < 5; index++) {
+        
+        setTimeout(function()  {
+        document.getElementById("countdown").innerHTML=index;
+
+    }, (4-index)*1000);
+    setTimeout(function() {
+        if (typeof stopTime === 'undefined') {
+            document.getElementById("target").innerHTML = "Too Slow";
+        } else {
+            let stopTime = Date.now();
+            let elapsedTime = stopTime - startTime;
+            document.getElementById("target").innerHTML = "Time was " + elapsedTime + " milliseconds.";
+        }
+    }, 4000);
+}
+
+
+        
+    }
+    
+  
+  
+  </script>
+
+</body>
+</html>

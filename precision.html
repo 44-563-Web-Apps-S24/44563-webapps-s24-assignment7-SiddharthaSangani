@@ -15,46 +15,39 @@
   <h2>Timeout - Red in 3 seconds</h2>
   <div id="target">your time</div>
   <div id="counter">Count</div>
-  <button type="button"  onclick="startTime()">Start timer</button>
-  <button type="button"  onclick="recordTime()">Stop timer</button>
+  <button type="button" id="startBtn" onclick="startTime()">Start timer</button>
+  <button type="button" id="stopBtn" onclick="recordTime()">Stop timer</button>
   
-  <p id="countdown">Countdown </p>
+  <!-- <p id="countdown">Countdown </p> -->
   
-  <script> 
-  var stopTime=undefined;
-  function recordTime()
-  {
-     stoptime=Date.now();
-     console.log(stopTime);
 
-     
-  }
-  function startTime()
-  {
-    for (let index = 0; index < 5; index++) {
-        
-        setTimeout(function()  {
-        document.getElementById("countdown").innerHTML=index;
+ <script>
+        let stopTime = undefined;
 
-    }, (4-index)*1000);
-    setTimeout(function() {
-        if (typeof stopTime === 'undefined') {
-            document.getElementById("target").innerHTML = "Too Slow";
-        } else {
-            let stopTime = Date.now();
-            let elapsedTime = stopTime - startTime;
-            document.getElementById("target").innerHTML = "Time was " + elapsedTime + " milliseconds.";
+        function recordTime() {
+            stopTime = Date.now();
+            console.log(stopTime);
         }
-    }, 4000);
-}
 
+        document.getElementById('stopBtn').onclick = recordTime;
+        function startTime() {
+            for (let i = 0; i < 5; i++) {
+                setTimeout(function() {
+                    document.getElementById('counter').innerHTML = i;
+                }, (4 - i) * 1000);
+            }
+            setTimeout(function() {
+                if (stopTime === undefined) {
+                    document.getElementById('target').innerHTML = "Too Slow";
+                } else {
+                    let elapsedTime = stopTime - (Date.now() - 4000);
+                    document.getElementById('target').innerHTML = "Time was " + elapsedTime + "ms";
+                }
+            }, 4000);
+        }
 
-        
-    }
-    
-  
-  
-  </script>
+        document.getElementById('startBtn').onclick = startTime;
+    </script>
 
 </body>
 </html>

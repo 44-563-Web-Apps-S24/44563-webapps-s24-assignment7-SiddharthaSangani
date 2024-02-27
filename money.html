@@ -17,8 +17,8 @@
     <p style= "text-align:center;font-family: cursive; background-color: azure;"><b>Click on the locations to find coins, beware the monster</b></p>
     <p style= "text-align:center;font-family: cursive;background-color: bisque;" id="locations"><b>Number of locations checked is zero</b></p>
     <p style= "text-align:center;font-family: cursive; background-color: blanchedalmond;" id="score"><b>Score is zero</b></p>
-    <p style= "text-align:center;font-family: cursive; background-color: burlywood;"><b>Click for help</b></p>
-    <p style= "text-align:center;font-family: cursive;background-color: cadetblue;" id="help"><b>Help report</b></p>
+    <p style= "text-align:center;font-family: cursive; background-color: burlywood;"><button onclick="help()">Click for help</button></p>
+    <p style= "text-align:center;font-family: cursive;background-color: cadetblue;" id="help"  ><b>Help report</b></p>
     <div class="row">
         <div class="col-sm-2"><img src="buliding.png" alt="buliding" id="img0" onclick="check(0)"></div>
         <div class="col-sm-2"><img src="buliding.png" alt="buliding" id="img1" onclick="check(1)"></div>
@@ -81,8 +81,7 @@
     var score =0;
     var locations =0;
     var lastLocation =0;
-    var fancyCoinLocations = new Array(6);
-    fancyCoinLocations = [2, 5, 14, 19, 23, 33];
+    var fancyCoinLocations = [2, 5, 14, 19, 23, 33];
     var monsterLocation =20;
     var gameOver= false;
     function check(position)
@@ -99,7 +98,7 @@
             img.src="fancier_coin.png";
             score+=3;
             locations++;
-            document.getElementById("locations").innerText = locations;
+            document.getElementById("locations").innerText = `locations:`+locations;
             document.getElementById("score").innerText = score;
 
         }
@@ -108,7 +107,7 @@
             gameOver = true; 
             score -= 5;
             locations++;
-            document.getElementById("locations").innerText = locations;
+            document.getElementById("locations").innerText = `locations:`+ locations;
             document.getElementById("score").innerText = score;
             }
         
@@ -116,242 +115,43 @@
             img.src="coin.png";
             score+=1;
             locations++;
-            document.getElementById("locations").innerText = locations; 
+            document.getElementById("locations").innerText =`locations:`+ locations; 
             document.getElementById("score").innerText = score;
         }
 
         lastLocation = position;
-
-            // switch (ids) {
-            //     case "img0":
-            //         img.src="coin.png";
-            //         score+=1;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-
-            //         break;
-            //     case "img1":
-            //         img.src="coin.png";
-            //         score+=1;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-            //         break;
-            //     case "img2":
-            //         document.getElementById("img2").src="fancyCoinLocations.png";
-            //         score+=3;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-            //         break;
-            //     case "img3":
-            //         document.getElementById("img3").src="coin.png";
-            //         score+=1;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-            //         break;
-            //     case "img4":
-            //         document.getElementById("img4").src="coin.png";
-            //         score+=1;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-            //         break;
-            //     case "img5":
-            //         document.getElementById("img5").src="fancyCoinLocations.png";
-            //         score+=3;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-            //         break;
-            //     case "img6":
-            //         document.getElementById("img6").src="coin.png";
-            //         score+=1;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-            //         break;
-            //     case "img7":
-            //         document.getElementById("img7").src="coin.png";
-            //         score+=1;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-            //         break;
-            //     case "img8":
-            //         document.getElementById("img8").src="coin.png";
-            //         score+=1;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-            //         break;
-            //     case "img9":
-            //         document.getElementById("img9").src="coin.png";
-            //         score+=1;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-            //         break;
-            //     case "img10":
-            //         document.getElementById("img10").src="coin.png";
-            //         score+=1;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-            //         break;
-            //     case "img11":
-            //         document.getElementById("img11").src="coin.png";
-            //         score+=1;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-            //         break;
-            //     case "img12":
-            //         document.getElementById("img12").src="coin.png";
-            //         score+=1;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-            //         break;
-            //     case "img13":
-            //         document.getElementById("img13").src="coin.png";
-            //         score+=1;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-            //         break;
-            //     case "img14":
-            //         document.getElementById("img14").src="fancyCoinLocations.png";
-            //         score+=3;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-            //         break;
-            //     case "img15":
-            //         document.getElementById("img15").src="coin.png";
-            //         score+=1;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-            //         break;
-            //     case "img16":
-            //         document.getElementById("img16").src="coin.png";
-            //         score+=1;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-            //         break;
-            //     case "img17":
-            //         document.getElementById("img17").src="coin.png";
-            //         score+=1;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-            //         break;
-            //     case "img18":
-            //         document.getElementById("img18").src="coin.png";
-            //         score+=1;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-            //         break;
-            //     case "img19":
-            //         document.getElementById("img19").src="fancyCoinLocations.png";
-            //         score+=3;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-            //         break;
-            //     case "img20":
-            //         document.getElementById("img20").src="monster.png";
-            //         score-=5;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-            //         gameOver= false;
-            //         break;
-            //     case "img21":
-            //         document.getElementById("img21").src="coin.png";
-            //         score+=1;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-            //         break;
-            //     case "img22":
-            //         document.getElementById("img22").src="coin.png";
-            //         score+=1;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-            //         break;
-            //     case "img23":
-            //         document.getElementById("img23").src="fancyCoinLocations.png";
-            //         score+=3;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-            //         break;
-            //     case "img24":
-            //         document.getElementById("img24").src="coin.png";
-            //         score+=1;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-            //         break;
-            //     case "img25":
-            //         document.getElementById("img25").src="coin.png";
-            //         score+=1;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-            //         break;
-            //     case "img26":
-            //         document.getElementById("img26").src="coin.png";
-            //         score+=1;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-            //         break;
-            //     case "img27":
-            //         document.getElementById("img0").src="coin.png";
-            //         score+=1;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-            //         break;
-            //     case "img28":
-            //         document.getElementById("img27").src="coin.png";
-            //         score+=1;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-            //         break;
-            //     case "img29":
-            //         document.getElementById("img29").src="coin.png";
-            //         score+=1;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-            //         break;
-            //     case "img30":
-            //         document.getElementById("img30").src="coin.png";
-            //         score+=1;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-            //         break;
-            //     case "img31":
-            //         document.getElementById("img31").src="coin.png";
-            //         score+=1;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-            //         break;
-            //     case "img32":
-            //         document.getElementById("img32").src="coin.png";
-            //         score+=1;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-            //         break;
-            //     case "img33":
-            //         document.getElementById("img33").src="fancyCoinLocations.png";
-            //         score+=3;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-            //         break;
-            //     case "img34":
-            //         document.getElementById("img34").src="coin.png";
-            //         score+=1;
-            //         locations++;
-            //         document.getElementById("locations").innerHTML = locations;
-            //         break;
-            //     default:
-            //         break;
-            // }
             
         }
         function help()
         {
-            var res;
-            var col= locations%5;
-            var row= locations/5;
-            var kinshipLocations = [lastLocation-1,lastLocation+1,lastLocation-5,lastLocation+5]
-            if(fancyCoinLocations.includes(kinshipLocations))
+            
+            var col= lastLocation%5;
+            var row= Math.floor(lastLocation/5);
+            
+            const kinshipLocations = [lastLocation-1,lastLocation+1,lastLocation-5,lastLocation+5];
+            for(const kinship of kinshipLocations)
             {
-                res = "soclose";
+                const adjustedLoc = (kinship+35)%35;
+                if(fancyCoinLocations.includes(adjustedLoc))
+            {
+                document.getElementById("help").innerHTML="So close";
+                return;
             }
-            document.getElementById("help").textContent = help();
-            document.querySelector("p.help").onclick = help;
+
+            }
+            
+
+            var monsterRow = Math.floor(monsterLocation / 5);
+            var monsterCol = monsterLocation % 5;
+            if (row - monsterRow< 1 && col - monsterCol < 1) {
+              document.getElementById("help").innerHTML="Grr";
+            }
+            else
+            {
+                document.getElementById("help").innerHTML="All clear";
+            }
+            document.getElementById("help").onclick = help;
+            //document.querySelector("p.help").onclick = help;
 
 
         }

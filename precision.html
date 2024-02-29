@@ -28,7 +28,6 @@
         }
 
         document.getElementById('stopBtn').onclick = recordTime;
-        
         function startTime() {
             random = Math.floor(Math.random() * 9)+2;
             for (let i = 0; i < random; i++) {
@@ -37,10 +36,10 @@
                 }, (4 - i) * 1000);
             }
             setTimeout(function() {
-                if (elapsedTime === undefined) {
+                if (stopTime === undefined) {
                     document.getElementById('target').innerHTML = "Too Slow";
                 } else {
-                    elapsedTime = stopTime - (Date.now() - 4000);
+                    let elapsedTime = stopTime - (Date.now() - 4000);
                     document.getElementById('target').innerHTML = "Time was " + elapsedTime + "ms";
                 }
             }, 4000);
